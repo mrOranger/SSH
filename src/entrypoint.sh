@@ -1,17 +1,7 @@
 #!/bin/bash
 
-LOG_FILE_PATH="/var/log/sshd.log"
-
 function ssh_server_intialization ()
 {
-    local PERMIT_ROOT_LOGIN="no"
-    local PASSWORD_AUTHENTICATION="no"
-    local PUBKEY_AUTHENTICATION="yes"
-    local AUTHORIZED_KEYS_FILE_PATH="/home/testuser/.ssh/authorized_keys"
-    local SSH_CONFIG_FILE="/etc/ssh/sshd_config"
-    local LOG_LEVEL="DEBUG3"
-    local SYS_LOG_FACILITY="AUTH"
-
     printf "PermitRootLogin ${PERMIT_ROOT_LOGIN}\n" >> ${SSH_CONFIG_FILE}
     printf "PasswordAuthentication ${PASSWORD_AUTHENTICATION}\n" >> ${SSH_CONFIG_FILE}
     printf "PubkeyAuthentication ${PUBKEY_AUTHENTICATION}\n" >> ${SSH_CONFIG_FILE}
