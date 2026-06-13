@@ -1,4 +1,5 @@
 /.vscode/
+/logs/*
 
 ssh_key
 ssh_key.pub
