@@ -10,7 +10,10 @@ ENV LOG_FILE_PATH="/var/log/sshd.log" \
     AUTHORIZED_KEYS_FILE_PATH="/home/testuser/.ssh/authorized_keys" \
     SSH_CONFIG_FILE="/etc/ssh/sshd_config" \
     LOG_LEVEL="DEBUG3" \
-    SYS_LOG_FACILITY="AUTH"
+    SYS_LOG_FACILITY="AUTH" \
+    CLIENT_ALIVE_INTERVAL=120 \
+    CLIENT_ALIVE_COUNT_MAX=5 \
+    USE_DNS="no"
 
 RUN apk add --no-cache openssh dos2unix bash
 
