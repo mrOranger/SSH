@@ -1,0 +1,14 @@
+services:
+  ssh-server:
+    image: mroranger/ssh-server:latest
+    build:
+      context: .
+      dockerfile: ssh.dockerfile
+    container_name: ssh-server
+    env_file:
+      - .env
+    ports:
+      - "2222:22"
+    volumes:
+      - ./logs/sshd.log:/var/log/sshd.log
+    restart: unless-stopped

@@ -2,6 +2,8 @@
 
 function ssh_server_intialization ()
 {
+    : > ${LOG_FILE_PATH}
+    
     printf "PermitRootLogin ${PERMIT_ROOT_LOGIN}\n" >> ${SSH_CONFIG_FILE}
     printf "PasswordAuthentication ${PASSWORD_AUTHENTICATION}\n" >> ${SSH_CONFIG_FILE}
     printf "PubkeyAuthentication ${PUBKEY_AUTHENTICATION}\n" >> ${SSH_CONFIG_FILE}
