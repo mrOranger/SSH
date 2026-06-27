@@ -1,3 +1,5 @@
+name: "test"
+
 services:
   ssh-server:
     image: mroranger/ssh-server:${IMAGE_TAG:-latest}
