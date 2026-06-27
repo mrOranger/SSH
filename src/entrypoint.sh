@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Initialize the server with the default options, took from .env file
 function ssh_server_intialization ()
 {
     : > ${LOG_FILE_PATH}
