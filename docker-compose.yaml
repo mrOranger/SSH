@@ -1,6 +1,6 @@
 services:
   ssh-server:
-    image: mroranger/ssh-server:1.8
+    image: mroranger/ssh-server:${IMAGE_TAG:-latest}
     restart: unless-stopped
     container_name: ssh-server
     build:
@@ -12,7 +12,7 @@ services:
     env_file:
       - .env
     ports:
-      - "2222:22"
+      - "${APP_PORT:-2222}:22"
     volumes:
       - type: bind
         source: /Users/edooranger/Lavoro/SSH/logs/sshd.log
