@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eou pipefail
+
 function ssh_server_intialization ()
 {
     : > ${LOG_FILE_PATH}
