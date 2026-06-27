@@ -24,14 +24,10 @@ RUN mkdir /home/appuser/.ssh /home/appuser/app && \
     chmod -R 700 /home/appuser && \
     chown -R appuser:appgroup /home/appuser
 
-COPY src/entrypoint.sh /home/appuser/app/entrypoint.sh
-COPY ssh_key.pub /home/appuser/.ssh/authorized_keys
+COPY --chown=appuser:appgroup --chmod=700 [ "src/entrypoint.sh", "/home/appuser/app/entrypoint.sh" ]
+COPY --chown=appuser:appgroup --chmod=600 [ "ssh_key.pub", "/home/appuser/.ssh/authorized_keys" ]
 
-RUN chmod 600 /home/appuser/.ssh/authorized_keys && \
-    chown appuser:appgroup /home/appuser/.ssh/authorized_keys && \
-    dos2unix /home/appuser/app/entrypoint.sh && \
-    chmod 766 /home/appuser/app/entrypoint.sh && \
-    chown -R appuser:appgroup /home/appuser/app
+RUN dos2unix /home/appuser/app/entrypoint.sh
 
 EXPOSE 22
 
