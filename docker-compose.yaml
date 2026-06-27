@@ -1,17 +1,20 @@
 services:
   ssh-server:
-    image: mroranger/ssh-server:1.8
+    image: mroranger/ssh-server:${IMAGE_TAG:-latest}
+    restart: unless-stopped
+    container_name: ssh-server
     build:
+      args:
+        - UID: ${UID:-1000}
+        - GID: ${GID:-1000}
       context: .
       dockerfile: ssh.dockerfile
-    container_name: ssh-server
     env_file:
       - .env
     ports:
-      - "2222:22"
+      - "${APP_PORT:-2222}:22"
     volumes:
       - type: bind
         source: /Users/edooranger/Lavoro/SSH/logs/sshd.log
         target: /var/log/sshd.log
         read_only: true
-    restart: unless-stopped
