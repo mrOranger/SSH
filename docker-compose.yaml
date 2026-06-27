@@ -3,7 +3,7 @@ name: "test"
 services:
   ssh-server:
     image: mroranger/ssh-server:${IMAGE_TAG:-latest}
-    restart: unless-stopped
+    restart: "no"
     container_name: ssh-server
     build:
       args:
