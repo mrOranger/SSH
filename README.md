@@ -11,7 +11,7 @@ The project is composed of the following critical files:
 ```
 ssh-server/
 ├── ssh.dockerfile
-├── .env
+├── .env.development
 ├── docker-compose.ssh.yaml
 ├── start.sh
 ├── src/
@@ -22,7 +22,7 @@ ssh-server/
 ```
 
 - [`ssh.dockerfile`](./ssh.dockerfile) Dockerfile containing the image definition, is based on Alpine.
-- [`.env`](./.env) Environment variables used to configure the SSH server, changes them on you need.
+- [`.env.development`](./.env.development) Environment variables used to configure the SSH server, changes them on you need.
 - [`docker-compose.ssh.yaml`](./docker-compose.ssh.yaml) Compose script to start the project
 - [`start.sh`](./start.sh) Bash script to build and start the server
 - [`src/entrypoint.sh`](./src/entrypoint.sh) Bash script used to initialize the SSH server
@@ -43,11 +43,11 @@ Moreover, connecting to the SSH server, requires the private key `ssh_key` gener
 
 ## Startup
 
-Starting the server can be done easily using the script `start.sh`. However, considet to update the file permissions:
+Starting the server requires first to copy the file `.env.development` inside a `.env`, updating the missing environment
+variables. Next you can run the following docker command:
 
-```bash
-chmod 766 ./start.sh
-./start.sh
+```sh
+docker compose --file=docker-compose.yaml up --progress=plain --build --detach
 ```
 
 If everything is okay, you can test the connection throught the command:
