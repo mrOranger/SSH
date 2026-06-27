@@ -1,7 +1,10 @@
 FROM alpine:3.20
 
-RUN adduser -D -s /bin/sh testuser && \
-    echo "testuser:changeme" | chpasswd
+ARG UID=1000
+ARG GID=1000
+
+RUN addgroup -g ${GID} appgroup && \
+    adduser -D -u ${UID} -G appgroup appuser
 
 ENV LOG_FILE_PATH="/var/log/sshd.log" \
     PERMIT_ROOT_LOGIN="no" \
