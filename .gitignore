@@ -5,3 +5,5 @@
 # Ignoring single files
 ssh_key
 ssh_key.pub
+
+.env
