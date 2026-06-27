@@ -1,6 +1,0 @@
-/.vscode/
-
-.gitignore
-README.md
-docker-compose.ssh.yaml
-ssh.dockerfile
