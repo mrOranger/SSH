@@ -20,3 +20,8 @@ services:
         source: /Users/edooranger/Lavoro/SSH/logs/sshd.log
         target: /var/log/sshd.log
         read_only: false
+
+networks:
+  default:
+    driver: bridge
+    internal: true
