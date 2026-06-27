@@ -6,15 +6,15 @@ function ssh_server_intialization ()
 {
     : > ${LOG_FILE_PATH}
     
-    printf "PermitRootLogin ${PERMIT_ROOT_LOGIN}\n" >> ${SSH_CONFIG_FILE}
-    printf "ClientAliveInterval ${CLIENT_ALIVE_INTERVAL}\n" >> ${SSH_CONFIG_FILE}
-    printf "ClientAliveCountMax ${CLIENT_ALIVE_COUNT_MAX}\n" >> ${SSH_CONFIG_FILE}
-    printf "UseDNS ${USE_DNS}\n" >> ${SSH_CONFIG_FILE}
-    printf "PasswordAuthentication ${PASSWORD_AUTHENTICATION}\n" >> ${SSH_CONFIG_FILE}
-    printf "PubkeyAuthentication ${PUBKEY_AUTHENTICATION}\n" >> ${SSH_CONFIG_FILE}
-    printf "AuthorizedKeysFile ${AUTHORIZED_KEYS_FILE_PATH}\n" >> ${SSH_CONFIG_FILE}
-    printf "LogLevel ${LOG_LEVEL}\n" >> ${SSH_CONFIG_FILE}
-    printf "SyslogFacility ${SYS_LOG_FACILITY}\n" >> ${SSH_CONFIG_FILE}
+    printf "PermitRootLogin %s\n" ${PERMIT_ROOT_LOGIN} >> ${SSH_CONFIG_FILE}
+    printf "ClientAliveInterval %s\n" ${CLIENT_ALIVE_INTERVAL} >> ${SSH_CONFIG_FILE}
+    printf "ClientAliveCountMax %s\n" ${CLIENT_ALIVE_COUNT_MAX} >> ${SSH_CONFIG_FILE}
+    printf "UseDNS %s\n" ${USE_DNS} >> ${SSH_CONFIG_FILE}
+    printf "PasswordAuthentication %s\n" ${PASSWORD_AUTHENTICATION} >> ${SSH_CONFIG_FILE}
+    printf "PubkeyAuthentication %s\n" ${PUBKEY_AUTHENTICATION} >> ${SSH_CONFIG_FILE}
+    printf "AuthorizedKeysFile %s\n" ${AUTHORIZED_KEYS_FILE_PATH} >> ${SSH_CONFIG_FILE}
+    printf "LogLevel %s\n" ${LOG_LEVEL} >> ${SSH_CONFIG_FILE}
+    printf "SyslogFacility %s\n" ${SYS_LOG_FACILITY} >> ${SSH_CONFIG_FILE}
 }
 
 printf ">>> SSH server initialization ...\n"
