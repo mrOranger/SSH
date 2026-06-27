@@ -1,6 +1,6 @@
 services:
   ssh-server:
-    image: mroranger/ssh-server:latest
+    image: mroranger/ssh-server:1.8
     build:
       context: .
       dockerfile: ssh.dockerfile
@@ -10,5 +10,8 @@ services:
     ports:
       - "2222:22"
     volumes:
-      - ./logs/sshd.log:/var/log/sshd.log
+      - type: bind
+        source: /Users/edooranger/Lavoro/SSH/logs/sshd.log
+        target: /var/log/sshd.log
+        read_only: true
     restart: unless-stopped
