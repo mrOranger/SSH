@@ -12,6 +12,6 @@ services:
     volumes:
       - type: bind
         source: /Users/edooranger/Lavoro/SSH/logs/sshd.log
-        destination: /var/log/sshd.log
+        target: /var/log/sshd.log
         read_only: true
     restart: unless-stopped
